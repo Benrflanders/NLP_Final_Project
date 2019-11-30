@@ -1,5 +1,9 @@
+#a file for loading the proper data from the download directory to the processed data directory
+
 import os, os.path
 import shutil
+
+from emailInfo import *
 
 #Path information
 data_path = os.path.expanduser('~/finalProject/enron_data/maildir/')
@@ -9,6 +13,7 @@ output_path = os.path.expanduser('~/finalProject/enron_data_processed/')
 if not os.path.exists(output_path):
 	os.makedirs(output_path)
 
+    
 #Copy data from data_path to output_path
 for sub_dir in os.listdir(data_path): #for each person
 	print(sub_dir)
@@ -38,3 +43,23 @@ for sub_dir in os.listdir(data_path): #for each person
 					except IOError:
 						print "Could not copy: " + file_to_copy
 
+#make directory structure
+def load_and_process_data():
+    for sub_dir in os.listdir(data_path): #for each person
+        #for all emails in the inbox and sent folders
+        inbox_dir = os.path.join(data_path, sub_dir, inbox)
+        if(os.path.exists(inbox_dir)):
+            for file in inbox_dir:
+                file_content = open(os.path.join(inbox_dir+'/'+file))
+                #get that email's to and from users
+                to = get_email_to(file_content)
+                frm = get_email_from(file_content)
+                id_to = csvEmployeeNameToDirStyleEmployeeName(to)
+                id_frm = csvEmployeeNameToDirStyleEmployeeName(frm)
+                
+                #get each user's tier
+                
+                #create the proper file if it doesn't exist
+                #get only the message contents
+                #append to the file for that X to Y file
+            
