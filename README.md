@@ -13,3 +13,5 @@ employees_with_titles
 
 
 Employee Tiers based on title: (see Title_to_tier.csv for a mapping)
+
+IMPORTANT: Ipynb notebooks are the best source of accurate model training and reflect the state of the research paper. 
