@@ -12,10 +12,4 @@ employees_with_titles
 -all employees listed have a title 
 
 
-https://slideplayer.com/slide/13446119/
--Enron organization chart (used as a reference for deciding what 'tier' each title is on
-
-
-
-
 Employee Tiers based on title: (see Title_to_tier.csv for a mapping)
